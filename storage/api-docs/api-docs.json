@@ -1,0 +1,88 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "SEDUC API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/seduc/aluno": {
+            "get": {
+                "tags": [
+                    "Aluno"
+                ],
+                "summary": " Dados da Tabela Aluno",
+                "description": "Exemplo de uso: \r\n          \r\n        *      Exemplo 1 => Usando o Where: URL + ?fields=GoogleTurmaID,GoogleUserID,GedAluCod&coditions=GedAluCod:=:1158331  \r\n        *      Exemplo 2  => Usando o like: URL + ?fields=GoogleTurmaID,GoogleUserID,GedAluCod&coditions=GedAluCod:like:%1%  ",
+                "operationId": "be9b676d18d2daf2a270935600039abc",
+                "parameters": [
+                    {
+                        "name": "GoogleTurmaID",
+                        "in": "path",
+                        "description": "GoogleTurmaID",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "454164466354"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Missing Data"
+                    },
+                    "401": {
+                        "description": "fail"
+                    },
+                    "404": {
+                        "description": "fail"
+                    }
+                }
+            }
+        },
+        "/api/seduc/professor": {
+            "get": {
+                "tags": [
+                    "Professor"
+                ],
+                "summary": "Dados da Tabela Professor",
+                "description": "Exemplo de uso: \n   \n   *      Exemplo 1 => Usando o Where: URL + ?fields=ESCOLA_ID,TURMA_GID,NivelTurma,TURMA_NAME&coditions=ESCOLA_id:=:10766 \n   *      Exemplo 2  => Usando o like: URL + ?fields=ESCOLA_ID,TURMA_GID,NivelTurma,TURMA_NAME&coditions=TURMA_NAME:like:%EM% ",
+                "operationId": "0b9a3a6d51e822dfeb82f23150d6a9ab",
+                "parameters": [
+                    {
+                        "name": "ESCOLA_ID",
+                        "in": "path",
+                        "description": "ESCOLA_ID",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "15105"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Missing Data"
+                    },
+                    "401": {
+                        "description": "fail"
+                    },
+                    "404": {
+                        "description": "fail"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
